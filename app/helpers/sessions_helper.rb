@@ -15,8 +15,11 @@ module SessionsHelper
   end
 
   def current_user_equal(user)
+    # puts "#{user.id}"
     @current_user = user
+    @current_user
   end
+
 
   # Returns true if the user is logged in, false otherwise.
   def logged_in?

@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :events
+  has_many :attendances
   before_validation :record_signup, on: :create
 
   def authenticated?(remember_token)

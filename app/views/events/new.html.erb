@@ -1,0 +1,9 @@
+<p><%= flash[:danger] %></p>
+
+<%= form_tag '/add_event' do %>
+  Description: <%= text_field_tag :description %>
+  Place: <%= text_field_tag :location %>
+  Date: <%= date_field_tag :event_date %>
+  <%= submit_tag "Submit" %>
+
+<% end %>

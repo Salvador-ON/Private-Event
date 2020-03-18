@@ -1,0 +1,19 @@
+<div class="div">
+<%= button_to "previous", "/list_events" %>
+<%= button_to "upcomming", "/list_events?type=upcomming" %>
+</div>
+
+<table>
+<tr>
+    <th>Description</th>
+    <th>Show</th>
+</tr>
+<%@events.each do |event|%>
+<tr>
+<% if (params[:type]=="upcomming" && event.event_date > Date.today) || (params[:type]!="upcomming" && event.event_date < Date.today) %>
+<td><%=event.description%></td>
+<td><%= link_to "watch event", "/show_event?id=#{event.id}" %></td>
+<%end%>
+</tr>
+<%end%>
+</table>

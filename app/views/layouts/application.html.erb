@@ -12,11 +12,10 @@
   <body>
 
 
-  <% if false %>
-    <%= link_to "posts", '/' %> 
-  <% end %>
+    <%= link_to "all events", '/list_events' %> |
 
     <% if current_user %>
+    <%= link_to "user events", '/' %> |
       Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
     <% else %>
       <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>

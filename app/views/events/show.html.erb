@@ -1,0 +1,16 @@
+<p>Description: <%= @event.description%></p>
+<p>Event date: <%= @event.event_date%></p>
+<p>Place: <%= @event.location%></p>
+<p>Creator: <%= User.find(@event.user_id).name%></p>
+
+
+<table>
+<tr>
+    <th>Attendee</th>
+</tr>
+<%@attendees.each do |attendee|%>
+<tr>
+<td><%=User.find(attendee.user_id).name%></td>
+</tr>
+<%end%>
+</table>
