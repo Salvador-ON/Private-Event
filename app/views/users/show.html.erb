@@ -1,2 +1,16 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
+
+<table>
+<tr>
+    <th>Description</th>
+</tr>
+<%@events.each do |event|%>
+<tr>
+<td><%=event.description%></td>
+</tr>
+<%end%>
+</table>
+<% if current_user %>
+  <%= link_to "Create Event", '/add_event' %>
+<% end %>
