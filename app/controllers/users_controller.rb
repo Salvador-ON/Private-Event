@@ -1,16 +1,14 @@
 class UsersController < ApplicationController
   def show
     @events = Event.where(user_id: current_user.id)
-    @attendees = Attendance.where(user_id:current_user.id)
+    @attendees = Attendance.where(user_id: current_user.id)
   end
 
-  def new
-  end
+  def new; end
 
   def create
     @user = User.new(name: params[:name],
                      email: params[:email])
-
 
     if @user.valid?
       @user.save
@@ -21,4 +19,3 @@ class UsersController < ApplicationController
     end
   end
 end
-
