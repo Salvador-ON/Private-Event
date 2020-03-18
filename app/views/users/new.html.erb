@@ -1,0 +1,11 @@
+<h1>Users#new</h1>
+<p>Find me in app/views/users/new.html.erb</p>
+
+<p><%= flash[:danger] %></p>
+
+<%= form_tag '/signup' do %>
+  Name: <%= text_field_tag :name %>
+  Email: <%= text_field_tag :email %>
+  <%= submit_tag "Submit" %>
+
+<% end %>
