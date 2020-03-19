@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :restrict_access, only: %i[show]
+
   def show
     @events = Event.where(user_id: current_user.id)
     @attendees = Attendance.where(user_id: current_user.id)
@@ -17,5 +19,10 @@ class UsersController < ApplicationController
       flash[:danger] = 'form has invalid information'
       redirect_to '/signup'
     end
+  end
+
+  private
+  def restrict_access
+    redirect_to '/login' unless logged_in?
   end
 end
