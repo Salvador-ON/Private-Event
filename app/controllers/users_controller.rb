@@ -22,6 +22,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   def restrict_access
     redirect_to '/login' unless logged_in?
   end
