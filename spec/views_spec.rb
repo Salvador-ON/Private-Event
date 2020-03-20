@@ -19,7 +19,7 @@ RSpec.describe 'index page', type: :feature do
   end
   scenario 'index page' do
     visit '/login'
-    expect(page).to have_content('ID:')
+    expect(page).to have_content('Name:')
   end
   scenario 'test show all previous events' do
     visit '/list_events'
@@ -39,48 +39,28 @@ RSpec.describe 'index page', type: :feature do
   end
   scenario 'login with user1 should show event1 description' do
     visit '/login'
-    fill_in 'id', with: @user2.id
-    click_button 'Submit'
+    fill_in 'name', with: @user1.name
+    click_button 'Sign in'
     page.should have_content(@event1.description.to_s)
-  end
-  scenario 'login with user1 should not show event2 description' do
-    visit '/login'
-    fill_in 'id', with: @user2.id
-    click_button 'Submit'
-    page.should have_no_content(@event2.description.to_s)
-  end
-  scenario 'login with user1 and watch upcomming events' do
-    visit '/login'
-    fill_in 'id', with: @user2.id
-    click_button 'Submit'
-    visit '/?type=upcomming'
-    page.should have_content(@event2.description.to_s)
-  end
-  scenario 'login with user1 and watch upcomming events, should not appear event1' do
-    visit '/login'
-    fill_in 'id', with: @user2.id
-    click_button 'Submit'
-    visit '/?type=upcomming'
-    page.should have_no_content(@event1.description.to_s)
   end
   scenario 'test logout event' do
     visit '/login'
-    fill_in 'id', with: @user2.id
+    fill_in 'name', with: @user2.name
     visit '/logout'
-    page.should have_content('ID:')
+    page.should have_content('Name:')
   end
   scenario 'test signup event' do
     visit '/signup'
     fill_in 'name', with: 'fernando'
     fill_in 'email', with: 'fernando@fernando.com'
     click_button 'Submit'
-    page.should have_content('ID:')
+    page.should have_content('Name:')
   end
   scenario 'test signup event' do
     visit '/signup'
     fill_in 'name', with: 'fernando'
     fill_in 'email', with: ''
     click_button 'Submit'
-    page.should have_no_content('ID:')
+    page.should have_content('Email:')
   end
 end
