@@ -16,13 +16,9 @@
 </table>
 <%= link_to "Create Event", '/add_event' %>
 
-<div class="div">
-<%= button_to "previous", "/" %>
-<%= button_to "upcomming", "/?type=upcomming" %>
-</div>
-
-
-<h2>ATTENDANCE TO EVENTS</h2>
+<div class="container">
+<div>
+<h2>ATTENDANCED EVENTS</h2>
 <table>
 <tr>
     <th>Description</th>
@@ -31,10 +27,32 @@
 <%@attendees.each do |attendee|%>
 
 <tr>
-<% if (params[:type]=="upcomming" && Event.find(attendee.event_id).event_date>Date.today) || (params[:type]!="upcomming" && Event.find(attendee.event_id).event_date<Date.today) %>
+<% if (Event.find(attendee.event_id).event_date<Date.today) %>
 <td><%=Event.find(attendee.event_id).description%></td>
 <td><%= link_to "watch event", "/show_event?id=#{attendee.event_id}" %></td>
 <% end %>
 </tr>
 <%end%>
 </table>
+</div>
+
+<div>
+<h2>ATTENDANCE TO FUTURE EVENTS</h2>
+<table>
+<tr>
+    <th>Description</th>
+    <th>Show</th>
+</tr>
+<%@attendees.each do |attendee|%>
+
+<tr>
+<% if (Event.find(attendee.event_id).event_date>Date.today)%>
+<td><%=Event.find(attendee.event_id).description%></td>
+<td><%= link_to "watch event", "/show_event?id=#{attendee.event_id}" %></td>
+<% end %>
+</tr>
+<%end%>
+</table>
+</div>
+</div>
+

@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :restrict_access, only: %i[show]
 
   def show
-    @events = Event.where(user_id: current_user.id)
+    @events = Event.where(creator_id: current_user.id)
     @attendees = Attendance.where(user_id: current_user.id)
   end
 

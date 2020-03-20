@@ -10,7 +10,7 @@ Seventh Ruby on Rails Microverse Project By Salvador Olvera &amp; Oscar Russi
 - It has 3 models: User , Attendance, Event
 - The User has 2 attributes: name, email
 - The Attendance has 2 attributes: user_id, event_id
-- The Event has 2 attributes: description, location, event_date, user_id
+- The Event has 2 attributes: description, location, event_date, creator_id
 
 - In the front-end we can create new users, log in, and display the events of the user, and thre previous and upcoming events 
 

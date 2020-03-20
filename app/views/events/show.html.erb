@@ -1,7 +1,7 @@
 <p>Description: <%= @event.description%></p>
 <p>Event date: <%= @event.event_date%></p>
 <p>Place: <%= @event.location%></p>
-<p>Creator: <%= User.find(@event.user_id).name%></p>
+<p>Creator: <%= User.find(@event.creator_id).name%></p>
 
 
 <table>

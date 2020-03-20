@@ -7,10 +7,10 @@ RSpec.describe 'index page', type: :feature do
     @user2 = User.new(name: 'felipe', email: 'feli@pe.com')
     @user2.save
     @event1 = Event.new(description: 'felipe party', location: 'salta',
-                        user_id: @user1.id, event_date: Date.new(2001, 2, 3))
+                        creator_id: @user1.id, event_date: Date.new(2001, 2, 3))
     @event1.save
     @event2 = Event.new(description: 'juanito event 2', location: 'salta',
-                        user_id: @user1.id, event_date: Date.new(2021, 2, 3))
+                        creator_id: @user1.id, event_date: Date.new(2021, 2, 3))
     @event2.save
     @at1 = Attendance.new(user_id: @user2.id, event_id: @event1.id)
     @at1.save
