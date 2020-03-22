@@ -9,11 +9,6 @@ class EventsController < ApplicationController
     @event = current_user.events.build(description: params[:description],
                                        event_date: params[:event_date],
                                        location: params[:location])
-    # @event = Event.new(description: params[:description],
-    #                  event_date: params[:event_date],
-    #                 location: params[:location],
-    #              user_id: current_user.id)
-
     if @event.valid?
       @event.save
       redirect_to '/'

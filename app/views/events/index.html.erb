@@ -28,13 +28,16 @@
 <tr>
     <th>Description</th>
     <th>Show</th>
+    <th>Attend Event</th>
 </tr>
 <%@events.upcoming.each do |event|%>
 <tr>
 
 <td><%=event.description%></td>
 <td><%= link_to "watch event", "/show_event?id=#{event.id}" %></td>
-
+<% if Attendance.where(user_id: current_user.id, event_id: event.id)==[]%>
+<td><%= button_to 'attend event',  "/attendance?id=#{event.id}"%><td>
+<% end%>
 </tr>
 <%end%>
 </table>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'attendances/create'
   get 'events/create'
   get 'events/show'
   get 'users/new'
@@ -17,5 +18,7 @@ Rails.application.routes.draw do
   get '/show_event', to: 'events#show'
   get '/list_events', to: 'events#index'
   post '/list_events', to: 'events#index'
+  post '/attendance', to: 'attendances#create'
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
