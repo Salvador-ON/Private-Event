@@ -9,7 +9,7 @@
     <th>Description</th>
     <th>Show</th>
 </tr>
-<%@events.past.each do |event|%>
+<%@past.each do |event|%>
 <tr>
 
 <td><%=event.description%></td>
@@ -30,7 +30,7 @@
     <th>Show</th>
     <th>Attend Event</th>
 </tr>
-<%@events.upcoming.each do |event|%>
+<%@upcoming.each do |event|%>
 <tr>
 
 <td><%=event.description%></td>

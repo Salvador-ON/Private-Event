@@ -4,6 +4,6 @@ class Event < ApplicationRecord
   validates :event_date, presence: true
   default_scope -> { order(event_date: :asc) }
 
-  scope :upcoming, -> { where('event_date >= ?', Time.now.strftime('%Y-%d-%m')) }
-  scope :past, -> { where('event_date < ?', Time.now.strftime('%Y-%d-%m')) }
+  scope :upcoming, -> { where('event_date >= ?', Time.now.strftime('%Y-%m-%d')) }
+  scope :past, -> { where('event_date < ?', Time.now.strftime('%Y-%m-%d')) }
 end

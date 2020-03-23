@@ -43,13 +43,10 @@
     <th>Description</th>
     <th>Show</th>
 </tr>
-<%@attendees.each do |attendee|%>
-
+<%@upcoming_events.each do |event|%>
 <tr>
-<% if (Event.find(attendee.event_id).event_date>Date.today)%>
-<td><%=Event.find(attendee.event_id).description%></td>
-<td><%= link_to "watch event", "/show_event?id=#{attendee.event_id}" %></td>
-<% end %>
+<td><%=event.description%></td>
+<td><%= link_to "watch event", "/show_event?id=#{event.id}" %></td>
 </tr>
 <%end%>
 </table>

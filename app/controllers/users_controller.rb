@@ -4,6 +4,10 @@ class UsersController < ApplicationController
   def show
     @events = Event.where(creator_id: current_user.id)
     @attendees = Attendance.where(user_id: current_user.id)
+    created_events = current_user.events
+    @past_events = current_user.attended_events.past
+    @upcoming_events = current_user.attended_events.upcoming
+
   end
 
   def new; end
