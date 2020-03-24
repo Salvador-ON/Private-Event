@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_action :restrict_access, only: %i[index]
+
   def new; end
 
   def index

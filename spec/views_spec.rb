@@ -16,6 +16,9 @@ RSpec.describe 'index page', type: :feature do
     @at1.save
     @at2 = Attendance.new(user_id: @user2.id, event_id: @event2.id)
     @at2.save
+    visit '/login'
+    fill_in 'name', with: @user1.name
+    click_button 'Sign in'
   end
   scenario 'index page' do
     visit '/login'
@@ -38,18 +41,14 @@ RSpec.describe 'index page', type: :feature do
     expect(page).to have_content("Description: #{@event1.description}")
   end
   scenario 'login with user1 should show event1 description' do
-    visit '/login'
-    fill_in 'name', with: @user1.name
-    click_button 'Sign in'
     page.should have_content(@event1.description.to_s)
   end
   scenario 'test logout event' do
-    visit '/login'
-    fill_in 'name', with: @user2.name
     visit '/logout'
     page.should have_content('Name:')
   end
   scenario 'test signup event' do
+    visit '/logout'
     visit '/signup'
     fill_in 'name', with: 'fernando'
     fill_in 'email', with: 'fernando@fernando.com'
@@ -57,6 +56,7 @@ RSpec.describe 'index page', type: :feature do
     page.should have_content('Name:')
   end
   scenario 'test signup event' do
+    visit '/logout'
     visit '/signup'
     fill_in 'name', with: 'fernando'
     fill_in 'email', with: ''

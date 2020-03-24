@@ -7,7 +7,7 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_many :events, foreign_key: 'creator_id'
   has_many :attendances
-  has_many :attended_events, :through => :attendances, :source => :event
+  has_many :attended_events, through: :attendances, source: :event
   before_validation :record_signup, on: :create
 
   def authenticated?(remember_token)
