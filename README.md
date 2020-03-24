@@ -16,6 +16,8 @@ Seventh Ruby on Rails Microverse Project By Salvador Olvera &amp; Oscar Russi
 
 - We add the validation test using Rspec for unit test and Capibara for integrattion test
 
+- Using through and source to get the events attendend by the user
+
 
 # How to run this project
 
