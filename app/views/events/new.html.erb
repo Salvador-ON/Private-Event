@@ -1,9 +1,34 @@
-<p><%= flash[:danger] %></p>
-
-<%= form_tag '/add_event' do %>
-  Description: <%= text_field_tag :description %>
-  Place: <%= text_field_tag :location %>
-  Date: <%= date_field_tag :event_date %>
-  <%= submit_tag "Submit" %>
-
+<% if flash[:danger] %>
+  <div class="alert alert-danger">
+    <%= flash[:danger] %>
+  </div>
 <% end %>
+
+<div class="jumbotron background-color">
+  <h1 class="display-4 text-center text-dark">Create & Share A New Event!</h1>
+  <p class="lead text-center">You are only a few steps away from creating you new event.</p>
+  <hr class="my-4 border border-warning">
+  <p  class="text-center h4">Just enter the next information</p>
+  
+  <div> 
+  <%= form_tag '/add_event' do %>
+    <div class="m-2 w-25 mx-auto  d-flex justify-content-center flex-column"> 
+      <p class="h5 text-center">Description:</p>
+      <%= text_field_tag :description, "", class: "text-center mx-auto form-control" %>
+     </div>
+
+     <div class="m-2 w-25 mx-auto  d-flex justify-content-center flex-column"> 
+      <p class="h5 text-center">Place:</p>
+      <%= text_field_tag  :location, "", class: "text-center mx-auto form-control" %>
+     </div>
+
+
+    <div class="m-2 w-25 mx-auto  d-flex justify-content-center flex-column"> 
+      <p class="h5 text-center">Date:</p>
+      <%= date_field_tag :event_date, "", class: "text-center mx-auto form-control" %>
+     </div>
+   
+    <div class="m-2 w-25 mx-auto d-flex justify-content-center">
+      <%= submit_tag "Submit", class: "btn btn-warning" %></div>
+  <% end %>
+</div>

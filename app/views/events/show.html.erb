@@ -1,16 +1,27 @@
-<p>Description: <%= @event.description%></p>
-<p>Event date: <%= @event.event_date%></p>
-<p>Place: <%= @event.location%></p>
-<p>Creator: <%= User.find(@event.creator_id).name%></p>
+<div class="container mt-4">
+  <div class="card">
+  <h5 class="card-header text-capitalize"><span></span> <%= @event.description%></h5>
+  <div class="card-body">
+    <h5 class="card-title"><span>Date:</span> <%= @event.event_date%> </h5>
+    <p class="card-text"><span>Place:</span> <%= @event.location%> </p>
+    <a href="#" class="btn btn-primary">Creator: <%= User.find(@event.creator_id).name%></a>
+  </div>
+</div>
+</div>
 
+<div class="container mt-4 p-4 bg-light row d-flex justify-content-center flex-wrap">
 
-<table>
-<tr>
-    <th>Attendee</th>
-</tr>
-<%@attendees.each do |attendee|%>
-<tr>
-<td><%=User.find(attendee.user_id).name%></td>
-</tr>
-<%end%>
-</table>
+<div class="card my-4 mx-4 border border-dark" style="width: 16rem;">
+  <div class="card-header ">
+    <span class="text-warning font-weight-bold h3">Attendees</span> 
+  </div>
+  <ul class="list-group list-group-flush">
+    <%@attendees.each do |attendee|%>
+    <li class="list-group-item text-capitalize">
+      <%=User.find(attendee.user_id).name%></td>
+    </li>
+    <%end%>
+  </ul>
+</div>
+
+</div>

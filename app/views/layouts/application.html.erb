@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Private event</title>
+    <title>Private Events</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,16 +10,43 @@
   </head>
 
   <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+  <a class="navbar-brand" href="#">Share Events</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-
-    <%= link_to "all events", '/list_events' %> |
-
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
     <% if current_user %>
-    <%= link_to "user events", '/' %> |
-      Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
-    <% else %>
-      <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
-    <% end %>
+      <li class="nav-item <%= 'active' if current_page?('/list_events') %>"> 
+        <a class="nav-link" href="/list_events">All Events <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item <%= 'active' if current_page?('/') %>">
+        <a class="nav-link" href="/">My Events</a>
+      </li>
+      <li class="nav-item <%= 'active' if current_page?('/add_event') %>">
+        <a class="nav-link" href="/add_event">Create Event</a>
+      </li>
+      <li class="nav-item active ml-lg-4">
+        <span class="nav-link">Signed in as <span class="text-capitalize font-weight-bold"><%= current_user.name %></span></span>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link font-weight-bold" href="/logout">Log Out</a>
+      </li>
+      <% else %>
+      <li class="nav-item <%= 'active' if current_page?('/login') %>">
+        <a class="nav-link" href="/login">Log In</a>
+      </li>
+
+      <li class="nav-item <%= 'active' if current_page?('/signup') %>">
+        <a class="nav-link" href="/signup">Sign Up</a>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
+
     <%= yield %>
   </body>
 </html>

@@ -1,7 +1,23 @@
-<p><%= flash[:danger] %></p>
-
-<%= form_tag '/login' do %>
-  Name: <%= text_field_tag :name %>
-  <%= submit_tag "Sign in" %>
-
+<% if flash[:danger] %>
+  <div class="alert alert-danger">
+    <%= flash[:danger] %>
+  </div>
 <% end %>
+
+<div class="jumbotron background-color">
+  <h1 class="display-4 text-center text-dark">Welcome to Share Events!</h1>
+  <p class="lead text-center">The best best place to find the most amazing events around you.</p>
+  <hr class="my-4 border border-warning">
+  <p  class="text-center h4">If you already have an account Sign in.</p>
+  <div class="d-flex justify-content-center"> 
+    <%= form_tag('/login',{class: 'd-flex justify-content-center flex-column'})  do %>
+      <label for="name" class="text-center border-warning">Name:</label>
+      <%= text_field_tag :name, "", class: "form-control" %>
+      <%= submit_tag "Sign in", class: "btn btn-success w-50 mx-auto mt-2 text-center" %>
+    <% end %>
+  </div>
+  <p class="lead text-center mt-4 h4">You aren't a user?. Crete an account.</p>
+  <div class="d-flex justify-content-center">
+    <a class="btn btn-large btn-warning text-center" href="/signup">Create Account</a>
+  </div>
+</div>

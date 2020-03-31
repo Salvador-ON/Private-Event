@@ -1,11 +1,26 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
-
-<p><%= flash[:danger] %></p>
-
-<%= form_tag '/signup' do %>
-  Name: <%= text_field_tag :name %>
-  Email: <%= text_field_tag :email %>
-  <%= submit_tag "Submit" %>
-
+<% if flash[:danger] %>
+  <div class="alert alert-danger">
+    <%= flash[:danger] %>
+  </div>
 <% end %>
+
+<div class="jumbotron background-color">
+  <h1 class="display-4 text-center text-dark">Welcome to Share Events!</h1>
+  <p class="lead text-center">The best best place to find the most amazing events around you.</p>
+  <hr class="my-4 border border-warning">
+  <p  class="text-center h4">Create your account, and start attending to next local events in your town</p>
+  
+  <div> 
+  <%= form_tag '/signup' do %>
+    <div class="m-2 w-25 mx-auto  d-flex justify-content-center flex-column"> 
+      <p class="h5 text-center">Name:</p>
+      <%= text_field_tag :name, "", class: "text-center mx-auto form-control" %>
+     </div>
+    <div class="m-2 w-25 mx-auto d-flex justify-content-center flex-column">
+      <p class="h5 text-center">Email:</p> 
+      <%= text_field_tag :email, "", class: "text-center mx-auto form-control" %>
+    </div>
+    <div class="m-2 w-25 mx-auto d-flex justify-content-center">
+      <%= submit_tag "Submit", class: "btn btn-warning" %></div>
+  <% end %>
+</div>
