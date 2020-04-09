@@ -1,6 +1,6 @@
 # Private Events project
 
-Seventh Ruby on Rails Microverse Project By Salvador Olvera implemented with Bootstrap
+Seventh Ruby on Rails Microverse Project By Salvador Olvera &amp; Oscar Russi
 
 ![screenshot](./screenshot.png)
 
@@ -31,13 +31,16 @@ Seventh Ruby on Rails Microverse Project By Salvador Olvera implemented with Boo
 
 #### and deployed to GitHub
 
-## Author
+## Authors
 
 **Salvador Olvera**
 - Linkedin: [Salvador Olvera](https://www.linkedin.com/in/salvador-olvera-n)
 - Github: [@Salvador-ON](https://github.com/Salvador-ON)
 - Twitter: [@Salvador Olvera_ON](https://twitter.com/Salvador_ON) 
 
+**Oscar Russi**
+- Github: [@andresporras3423](https://github.com/andresporras3423/)
+- Linkedin: [Oscar Russi](https://www.linkedin.com/in/oscar-andr%C3%A9s-russi-porras-053236167/)
 
 ## � Contributing
 
